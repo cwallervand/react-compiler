@@ -1,6 +1,4 @@
-import React from "react";
-
-import { Product } from "../models/Product";
+import { Product } from '../models/Product';
 
 const ProductsList = ({ products }: { products: Product[] }) => {
   return (
@@ -28,4 +26,4 @@ const ProductsList = ({ products }: { products: Product[] }) => {
   );
 };
 
-export default React.memo(ProductsList);
+export default ProductsList;

@@ -1,8 +1,8 @@
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from 'react';
 
-import ProductsList from "./ProductsList";
-import FeaturedProductsList from "./FeaturedProductsList";
-import { type Product } from "../models/Product";
+import ProductsList from './ProductsList';
+import FeaturedProductsList from './FeaturedProductsList';
+import { type Product } from '../models/Product';
 
 const ProductPage = ({
   products,
@@ -11,6 +11,7 @@ const ProductPage = ({
   products: Product[];
   heading: string;
 }) => {
+  // Dont need to use useMemo any more
   const featuredProducts = useMemo(() => {
     return getFeaturedProducts(products);
   }, [products]);
@@ -34,6 +35,13 @@ type HeadingProps = {
   totalProducts: number;
 };
 const Heading = ({ heading, totalProducts }: HeadingProps) => {
+  console.log('Render heading');
+  // Use timeStampe to force update of date
+  const [timeStamp, setTimeStamp] = useState(Date.now());
+
+  useEffect(() => {
+    setTimeStamp(Date.now());
+  });
   return (
     <h1>
       {heading} ({totalProducts}) - {Date.now()}
@@ -42,7 +50,7 @@ const Heading = ({ heading, totalProducts }: HeadingProps) => {
 };
 
 const getFeaturedProducts = (products: Product[]): Product[] => {
-  console.log("getFeaturedProducts");
+  console.log('getFeaturedProducts');
   return products.filter((product) => product.featured);
 };
 
