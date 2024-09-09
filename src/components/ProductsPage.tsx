@@ -1,3 +1,7 @@
+import ProductsList from "./ProductsList";
+import FeaturedProductsList from "./FeaturedProductsList";
+import { type Product } from "../models/Product";
+
 const ProductPage = ({
   products,
   heading,
@@ -30,71 +34,6 @@ const Heading = ({ heading, totalProducts }: HeadingProps) => {
     <h1>
       {heading} ({totalProducts}) - {Date.now()}
     </h1>
-  );
-};
-
-type Product = {
-  id: number;
-  name: string;
-  emoji: string;
-  featured: boolean;
-  description?: string;
-  price?: number;
-};
-
-const ProductsList = ({ products }: { products: Product[] }) => {
-  return (
-    <div>
-      <h2>Products - {Date.now()}</h2>
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            <div>
-              <b>
-                {product.emoji}
-                {product.name}
-              </b>
-            </div>
-            {product.description && (
-              <p>
-                <i>{product.description}</i>
-              </p>
-            )}
-            {product.price && <p>Price: {product.price}</p>}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-const FeaturedProductsList = ({
-  featuredProducts,
-}: {
-  featuredProducts: Product[];
-}) => {
-  return (
-    <div>
-      <h2>Featured products - {Date.now()}</h2>
-      <ul>
-        {featuredProducts.map((product) => (
-          <li key={product.id}>
-            <div>
-              <b>
-                {product.emoji}
-                {product.name}
-              </b>
-            </div>
-            {product.description && (
-              <p>
-                <i>{product.description}</i>
-              </p>
-            )}
-            {product.price && <p>Price: {product.price}</p>}
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 };
 

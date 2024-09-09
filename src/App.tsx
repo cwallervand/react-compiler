@@ -1,3 +1,5 @@
+import React from "react";
+
 import "./App.css";
 import ProductPage from "./components/ProductsPage";
 
@@ -28,8 +30,35 @@ const consultants = [
   },
 ];
 
+const adjectives = [
+  "Adorable",
+  "Adventurous",
+  "Agreeable",
+  "Alert",
+  "Alive",
+  "Amused",
+  "Angry",
+  "Annoyed",
+  "Anxious",
+];
+
+const getProductsPageHeading = () => {
+  const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+  return `${adjective} Consultants`;
+};
+
 function App() {
-  return <ProductPage products={consultants} heading="Consultants" />;
+  const [productPageHeading, setProductPageHeading] = React.useState(
+    getProductsPageHeading()
+  );
+  return (
+    <div>
+      <button onClick={() => setProductPageHeading(getProductsPageHeading())}>
+        Change heading
+      </button>
+      <ProductPage products={consultants} heading={productPageHeading} />
+    </div>
+  );
 }
 
 export default App;
