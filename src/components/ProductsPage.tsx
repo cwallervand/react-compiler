@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+
 import ProductsList from "./ProductsList";
 import FeaturedProductsList from "./FeaturedProductsList";
 import { type Product } from "../models/Product";
@@ -9,7 +11,9 @@ const ProductPage = ({
   products: Product[];
   heading: string;
 }) => {
-  const featuredProducts = products.filter((product) => product.featured);
+  const featuredProducts = useMemo(() => {
+    return getFeaturedProducts(products);
+  }, [products]);
   const totalProducts = products.length;
 
   return (
@@ -35,6 +39,11 @@ const Heading = ({ heading, totalProducts }: HeadingProps) => {
       {heading} ({totalProducts}) - {Date.now()}
     </h1>
   );
+};
+
+const getFeaturedProducts = (products: Product[]): Product[] => {
+  console.log("getFeaturedProducts");
+  return products.filter((product) => product.featured);
 };
 
 export default ProductPage;

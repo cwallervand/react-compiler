@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Product } from "../models/Product";
 
 const FeaturedProductsList = ({

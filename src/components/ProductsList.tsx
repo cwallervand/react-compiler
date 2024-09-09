@@ -28,4 +28,4 @@ const ProductsList = ({ products }: { products: Product[] }) => {
   );
 };
 
-export default ProductsList;
+export default React.memo(ProductsList);
