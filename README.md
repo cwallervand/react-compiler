@@ -1,50 +1,37 @@
-# React + TypeScript + Vite
+# React Compiler
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+In React functional components, when props within a component change, the entire component re-renders by default. In other words, if any value within a component updates, the entire component will re-render, including functions/components that have not had their values/props altered.
 
-Currently, two official plugins are available:
+## With memoization
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Memoization** is an optimization technique used in computer science to improve the efficiency of algorithms by storing the results of expensive function calls and reusing them when the same inputs occur again. The key idea behind memoization is to avoid redundant calculations by caching the results of previously computed operations.
 
-## Expanding the ESLint configuration
+Dont use memoization blindly; it has a cost in form of memory. You should only use if for "expensive" functions.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### React.memo() vs useMemo()
 
-- Configure the top-level `parserOptions` property like this:
+**`React.memo()`** is a higher-order component that we can use to wrap components that we do not want to re-render unless props within them change.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+**`useMemo()`** is a React Hook that we can use to wrap functions within a component. We can use this to ensure that the values within that function are re-computed only when one of its dependencies change
+
+## With React Compiler
+
+The introduction of the React Compiler in v19 lets React do more of the optimization work.
+
+Use this command to check compatibility with React Compiler:
+
+```
+npx react-compiler-healthcheck@experimental
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+````
+npm install eslint-plugin-react-compiler@experimental```
+````
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+npm install babel-plugin-react-compiler@experimental
+```
+
+React Devtools (v5.0+) has built-in support for React Compiler and will display a “Memo ✨” badge next to components that have been optimized by the compiler.
+
+Memoization uses up memory space on the machine it’s being run on and, as such, may lead to unintended effects.
