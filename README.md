@@ -25,6 +25,8 @@ The compiler assumes that your code:
 
 React Devtools (v5.0+) has built-in support for React Compiler and will display a “Memo ✨” badge next to components that have been optimized by the compiler.
 
+To get a better understanding of how the compiler works, check out the [React Compiler Playground](https://playground.react.dev/#N4Igzg9grgTgxgUxALhHCA7MAXABACQQEMATASwwHNcBeXACmFwAtjyqAaXbCbIgGwAKMCCShxsYXAF9kBNhUrCIABzABKWgD5cwADoZcudFgj8EAOn4RK9PSABKCDCQQwWCqvfUBuA0ZgEbFhDO0MjXAAeZgBGLX8Io2BWUkVpBmAePiERMQkwaU0AWl0AESJsSwwIAHd6dWkEo0iAelj48N8DaR8QaSA).
+
 ### Check code base compatability
 
 Use this command to check compatibility with React Compiler:
