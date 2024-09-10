@@ -41,7 +41,7 @@ const Heading = ({ heading, totalProducts }: HeadingProps) => {
 
   useEffect(() => {
     setTimeStamp(Date.now());
-  });
+  }, [heading]);
   return (
     <h1>
       {heading} ({totalProducts}) - {Date.now()}
