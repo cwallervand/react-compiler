@@ -1,45 +1,45 @@
-import React from "react";
+import { useState } from 'react';
 
-import "./App.css";
-import ProductPage from "./components/ProductsPage";
+import './App.css';
+import ProductPage from './components/ProductsPage';
 
 const consultants = [
   {
     id: 1,
-    name: "John Doe",
-    emoji: "👨🏻‍🦰",
+    name: 'John Doe',
+    emoji: '👨🏻‍🦰',
     featured: true,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     price: 100,
   },
   {
     id: 2,
-    name: "Jane Doe",
-    emoji: "👩🏻‍🦰",
+    name: 'Jane Doe',
+    emoji: '👩🏻‍🦰',
     featured: false,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     price: 200,
   },
   {
     id: 3,
-    name: "Bob Smith",
-    emoji: "🧔🏾",
+    name: 'Bob Smith',
+    emoji: '🧔🏾',
     featured: false,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     price: 300,
   },
 ];
 
 const adjectives = [
-  "Adorable",
-  "Adventurous",
-  "Agreeable",
-  "Alert",
-  "Alive",
-  "Amused",
-  "Angry",
-  "Annoyed",
-  "Anxious",
+  'Adorable',
+  'Adventurous',
+  'Agreeable',
+  'Alert',
+  'Alive',
+  'Amused',
+  'Angry',
+  'Annoyed',
+  'Anxious',
 ];
 
 const getProductsPageHeading = () => {
@@ -48,7 +48,7 @@ const getProductsPageHeading = () => {
 };
 
 function App() {
-  const [productPageHeading, setProductPageHeading] = React.useState(
+  const [productPageHeading, setProductPageHeading] = useState(
     getProductsPageHeading()
   );
   return (
