@@ -54,3 +54,10 @@ It is important that the compiler runs first in the build pipeline.
 ```
 npm install babel-plugin-react-compiler@experimental
 ```
+
+## Resources
+
+- https://www.freecodecamp.org/news/react-compiler-complete-guide-react-19
+- https://react.dev/learn/react-compiler
+- https://blog.logrocket.com/react-memo-vs-usememo
+- https://playground.react.dev
