@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "babel-plugin-react-compiler": "^0.0.0-experimental-7449567-20240905",
-    "react": "19.0.0-rc-a03254bc-20240905",
-    "react-dom": "19.0.0-rc-a03254bc-20240905"
+    "react": "^19.0.0-rc-5dcb0097-20240918",
+    "react-dom": "^19.0.0-rc-5dcb0097-20240918"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
