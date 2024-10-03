@@ -1,6 +1,14 @@
 # React Compiler
 
-In React functional components, when props within a component change, the entire component re-renders by default. In other words, if any value within a component updates, the entire component will re-render, including functions/components that have not had their values/props altered.
+## What is the React Compiler?
+
+It is a build-time only tool that automatically optimizes your React app. It works with plain JavaScript, and understands the [Rules of React](https://react.dev/reference/rules), so you don’t need to rewrite any code to use it.
+
+The compiler also includes an eslint plugin that surfaces the analysis from the compiler right in your editor. The plugin runs independently of the compiler and can be used even if you aren’t using the compiler in your app.
+
+## The "problem"
+
+In React functional components, when props within a component change, the entire component re-renders by default. This also includes child components that have not had their values/props altered.
 
 ## With memoization
 
