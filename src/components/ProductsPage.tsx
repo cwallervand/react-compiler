@@ -36,7 +36,7 @@ type HeadingProps = {
 };
 const Heading = ({ heading, totalProducts }: HeadingProps) => {
   console.log('Render heading');
-  // Use timeStampe to force update of date
+  // Use timeStamp to force update of date
   const [timeStamp, setTimeStamp] = useState(Date.now());
 
   useEffect(() => {
