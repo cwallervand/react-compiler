@@ -1,8 +1,8 @@
-import { useMemo } from "react";
+import { useMemo } from 'react';
 
-import ProductsList from "./ProductsList";
-import FeaturedProductsList from "./FeaturedProductsList";
-import { type Product } from "../models/Product";
+import ProductsList from './ProductsList';
+import FeaturedProductsList from './FeaturedProductsList';
+import { type Product } from '../models/Product';
 
 const ProductPage = ({
   products,
@@ -14,6 +14,7 @@ const ProductPage = ({
   const featuredProducts = useMemo(() => {
     return getFeaturedProducts(products);
   }, [products]);
+
   const totalProducts = products.length;
 
   return (
@@ -42,7 +43,7 @@ const Heading = ({ heading, totalProducts }: HeadingProps) => {
 };
 
 const getFeaturedProducts = (products: Product[]): Product[] => {
-  console.log("getFeaturedProducts");
+  console.log('getFeaturedProducts');
   return products.filter((product) => product.featured);
 };
 
